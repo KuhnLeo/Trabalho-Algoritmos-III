@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
-#include <cmath>
 
 #include "listCreator.h"
 
@@ -27,8 +26,9 @@ void bubblesort(vector<int>& array) {
 }
 
 int main() {
-
-    vector<int> numeros = listaAleatoriaComRepeticao(pow(2, 7));
+    int var;
+    
+    vector<int> numeros = listaAleatoriaComRepeticao(var));
 
     auto inicio = chrono::steady_clock::now();
 
@@ -39,7 +39,7 @@ int main() {
     auto duracao = fim - inicio;
     auto duracaoNano = chrono::duration_cast<chrono::nanoseconds>(duracao);
 
-    cout << "Tempo gasto para ordenar 128 números: " << duracaoNano.count() << " nanosegundos" << endl;
+    cout << "Tempo gasto para ordenar " << var << " números: " << duracaoNano.count() << " nanosegundos" << endl;
     
     return 0;
 }
