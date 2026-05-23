@@ -3,6 +3,8 @@
 #include <chrono>
 #include <cmath>
 
+#include "listCreator.h"
+
 using namespace std;
 
 void bubblesort(vector<int>& array) {
@@ -22,38 +24,6 @@ void bubblesort(vector<int>& array) {
             break;
         }
     }
-}
-
-vector<int> listaCrescente(int tamanho) {
-    vector<int> numeros(tamanho);
-    for (int i = 0; i < tamanho; i++) {
-        numeros.push_back(i);
-    }
-    return numeros;
-}
-
-vector<int> listaDecrescente(int tamanho) {
-    vector<int> numeros(tamanho);
-    for (int i = 0; i < tamanho; i++) {
-        numeros.push_back(tamanho - i);
-    }
-    return numeros;
-}
-
-vector<int> listaAleatoriaSemRepeticao(int tamanho) {
-    vector<int> numeros(tamanho);
-    
-    return numeros;
-}
-
-vector<int> listaAleatoriaComRepeticao(int tamanho) {
-    vector<int> numeros(tamanho);
-
-    for (int i = 0; i < tamanho; i++) {
-        numeros.push_back(rand());
-    }
-
-    return numeros;
 }
 
 int main() {
