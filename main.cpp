@@ -2,19 +2,19 @@
 #include <vector>
 #include <chrono>
 
-#include "listCreator.h"
-#include "sortings.h"
+#include "listCreators/listCreator.h"
+#include "sortings/sortings.h"
 
 using namespace std;
 
 int main() {
-    int var;
+    int var = 10;
     
-    vector<int> numeros = listaAleatoriaComRepeticao(var));
+    vector<int> numeros = listaAleatoriaComRepeticao(var);
 
     auto inicio = chrono::steady_clock::now();
 
-    bubblesort(numeros);
+    bubbleSort(numeros);
 
     auto fim = chrono::steady_clock::now();
 

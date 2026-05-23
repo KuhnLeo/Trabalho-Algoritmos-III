@@ -8,7 +8,7 @@ using namespace std;
 vector<int> listaCrescente(int tamanho) {
     vector<int> numeros(tamanho);
     for (int i = 0; i < tamanho; i++) {
-        numeros.push_back(i);
+        numeros[i] = i;
     }
     return numeros;
 }
@@ -16,7 +16,7 @@ vector<int> listaCrescente(int tamanho) {
 vector<int> listaDecrescente(int tamanho) {
     vector<int> numeros(tamanho);
     for (int i = 0; i < tamanho; i++) {
-        numeros.push_back(tamanho - i);
+        numeros[i] = tamanho - i;
     }
     return numeros;
 }
@@ -31,7 +31,7 @@ vector<int> listaAleatoriaComRepeticao(int tamanho) {
     vector<int> numeros(tamanho);
 
     for (int i = 0; i < tamanho; i++) {
-        numeros.push_back(rand());
+        numeros[i] = rand();
     }
 
     return numeros;
