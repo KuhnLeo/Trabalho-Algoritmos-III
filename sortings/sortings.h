@@ -9,4 +9,8 @@ void bubbleSort(vector<int>& array);
 
 void insertionSort(vector<int>& array);
 
+void selectionSort(vector<int>& array);
+
+void heapSort(vector<int>& array);
+
 #endif
