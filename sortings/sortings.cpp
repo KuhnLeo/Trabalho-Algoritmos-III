@@ -84,6 +84,43 @@ void heapSort(vector<int>& arr) {
     }
 }
 
+void shellSort(vector<int>& arr) {
+    int n = arr.size();
+ 
+    int gap = 1;
+    while (gap < n / 3) gap = gap * 3 + 1;
+ 
+    while (gap >= 1) {
+        for (int i = gap; i < n; i++) {
+            int chave = arr[i];
+            int j = i;
+            while (j >= gap && arr[j - gap] > chave) {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+            arr[j] = chave;
+        }
+        gap /= 3;
+    }
+}
 
-
-
+static void merge(vector<int>& arr, int esq, int meio, int dir) {
+    vector<int> L(arr.begin() + esq,    arr.begin() + meio + 1);
+    vector<int> R(arr.begin() + meio + 1, arr.begin() + dir  + 1);
+ 
+    int i = 0, j = 0, k = esq;
+    while (i < (int)L.size() && j < (int)R.size()) {
+        if (L[i] <= R[j]) arr[k++] = L[i++];
+        else               arr[k++] = R[j++];
+    }
+    while (i < (int)L.size()) arr[k++] = L[i++];
+    while (j < (int)R.size()) arr[k++] = R[j++];
+}
+ 
+void mergeSort(vector<int>& arr, int esq, int dir) {
+    if (esq >= dir) return;
+    int meio = esq + (dir - esq) / 2;
+    mergeSort(arr, esq, meio);
+    mergeSort(arr, meio + 1, dir);
+    merge(arr, esq, meio, dir);
+}

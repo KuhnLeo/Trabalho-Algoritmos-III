@@ -13,4 +13,8 @@ void selectionSort(vector<int>& array);
 
 void heapSort(vector<int>& array);
 
+void shellSort(vector<int>& arr);
+ 
+void mergeSort(vector<int>& arr, int esq, int dir);
+
 #endif
