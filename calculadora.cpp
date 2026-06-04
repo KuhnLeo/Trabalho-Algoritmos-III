@@ -5,17 +5,19 @@
 /* Essa biblioteca usa uma função de formatação setprecision, que mantém
 o valor total da variável mas mostra ela em apenas 2 casas decimais */
 
+#include "calculadora.h"
+
 using namespace std;
 
-float valorMedia(vector<int>& numeros) {
-    float total = 0;
+double valorMedia(vector<long long>& numeros) {
+    double total = 0;
     for(int i=0; i<numeros.size(); i++) {
         total += numeros[i];
     }
     return total / numeros.size();
 }
 
-double valorVariancia(float media, vector<int>& numeros) {
+double valorVariancia(double media, vector<long long>& numeros) {
     double variancia = 0;
     for(int i=0; i<numeros.size(); i++) {
         variancia += pow(numeros[i] - media, 2);
@@ -23,38 +25,26 @@ double valorVariancia(float media, vector<int>& numeros) {
     return variancia / (numeros.size() - 1);
 }
 
-float desvioPadrao(float variancia) {
+double desvioPadrao(double variancia) {
     return sqrt(variancia);
 }
 
+double mediaIntervalo(double media, double desvio, vector<long long>& numeros) {
+    double limiteInferior = media - desvio;
+    double limiteSuperior = media + desvio;
 
+    double soma = 0;
+    int quantidade = 0;
 
-int main () {
-
-    vector<int> numeros = {};
-
-    cout << "****************************************" << endl;
-    cout << "********* CALCULADORA DE DADOS *********" << endl;
-    cout << "****************************************" << endl << endl;
-
-    cout << "Digite os números: ";
-    for (int i=0; i<10; i++) {
-        int numero;
-        cin >> numero;
-        numeros.push_back(numero);
+    for (long long numero : numeros) {
+        if (numero >= limiteInferior && numero <= limiteSuperior) {
+            soma += numero;
+            quantidade++;
+        }
     }
-    cout << endl << endl;
 
-
-    cout << fixed << setprecision(2);
-
-    float media = valorMedia(numeros);
-    double variancia = valorVariancia(media, numeros);
-    float desvio = desvioPadrao(variancia);
-
-    cout << "Média: " << media << endl;
-    cout << "Variância: " << variancia << endl;
-    cout << "Desvio padrão: " << desvio;
-
-    return 0;
+    if (quantidade == 0) {
+        return 0;
+    }
+    return soma / quantidade;
 }
