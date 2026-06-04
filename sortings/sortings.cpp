@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 
+#include "sortings.h"
+
 using namespace std;
 
 void bubbleSort(vector<int>& array) {
